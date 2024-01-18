@@ -1,0 +1,24 @@
+server:
+  port: 5000
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017 #,sevenine:$3v3n1n3@sevenine-263733254662.us-east-1.docdb-elastic.amazonaws.com:27017
+      database: america
+  cloud:
+    aws:
+      region:
+        static: us-east-1
+      credentials:
+        access-key: AKIAT2Z52DIDOF4NCWB6
+        secret-key: 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
+
+logging:
+  level:
+    org:
+      springframework:
+        web: info
+    io:
+      awspring:
+        cloud: debug
