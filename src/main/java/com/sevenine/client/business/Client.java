@@ -1,19 +1,20 @@
-package com.sevenine.america.business.league;
+package com.sevenine.client.business;
 
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 import static java.util.Objects.isNull;
 
 @Getter
 @Setter
-public class League {
+public class Client {
     private String uuid;
-    private String city;
     private String name;
-    private String nick;
+    private String document;
+    private LocalDate birthdate;
 
     public void setUuid(String uuid) {
         if (isNull(uuid)) {

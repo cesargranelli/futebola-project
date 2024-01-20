@@ -1,10 +1,10 @@
-package com.sevenine.america;
+package com.sevenine.client;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class AmericaApplicationTests {
+class ClientApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -1,4 +1,4 @@
-package com.sevenine.america.infrastructure.aws.documentdb.document;
+package com.sevenine.client.infrastructure.mongodb.document;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,11 +7,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
 @Setter
-@Document("leagues")
-public class LeagueDocument {
+@Document("clients")
+public class ClientDocument {
     @Id
-    private String id;
+    private String uuid;
     private String name;
-    private String nick;
-    private String city;
+    private String document;
+    private String birthdate;
 }

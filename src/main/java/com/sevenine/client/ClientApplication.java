@@ -1,4 +1,4 @@
-package com.sevenine.america;
+package com.sevenine.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @EnableMongoRepositories
 @SpringBootApplication
-public class AmericaApplication {
+public class ClientApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AmericaApplication.class, args);
+		SpringApplication.run(ClientApplication.class, args);
 	}
 
 }
