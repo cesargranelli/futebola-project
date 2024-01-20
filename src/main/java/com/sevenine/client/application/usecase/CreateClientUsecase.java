@@ -16,8 +16,8 @@ public class CreateClientUsecase {
 
     private final ObjectMapper mapper;
 
-    public CreateClientOutput create(CreateClientInput request) {
-        Client client = mapper.convertValue(request, Client.class);
+    public CreateClientOutput create(CreateClientInput input) {
+        Client client = mapper.convertValue(input, Client.class);
 
         Client response = leagueService.create(client);
 

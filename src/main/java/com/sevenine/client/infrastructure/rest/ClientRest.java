@@ -19,8 +19,8 @@ public class ClientRest {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public ResponseEntity<CreateClientOutput> leagues(@RequestBody CreateClientInput request) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(createClientUsecase.create(request));
+    public ResponseEntity<CreateClientOutput> clients(@RequestBody CreateClientInput input) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(createClientUsecase.create(input));
     }
 
 }

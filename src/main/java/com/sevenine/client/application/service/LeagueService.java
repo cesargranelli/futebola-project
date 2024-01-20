@@ -3,7 +3,7 @@ package com.sevenine.client.application.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sevenine.client.business.Client;
 import com.sevenine.client.infrastructure.mongodb.document.ClientDocument;
-import com.sevenine.client.infrastructure.mongodb.repository.LeagueRepository;
+import com.sevenine.client.infrastructure.mongodb.repository.ClientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ import static java.util.Objects.isNull;
 @Service
 public class LeagueService {
 
-    private final LeagueRepository repository;
+    private final ClientRepository repository;
 
     private final ObjectMapper mapper;
 
