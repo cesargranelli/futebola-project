@@ -2,8 +2,8 @@ package com.sevenine.client.application.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sevenine.client.business.Client;
-import com.sevenine.client.infrastructure.mongodb.document.ClientDocument;
-import com.sevenine.client.infrastructure.mongodb.repository.ClientRepository;
+import com.sevenine.client.infrastructure.repository.mongodb.document.ClientDocument;
+import com.sevenine.client.infrastructure.repository.mongodb.ClientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.sevenine.client.infrastructure.mongodb.document;
+package com.sevenine.client.infrastructure.repository.mongodb.document;
 
 import lombok.Getter;
 import lombok.Setter;
