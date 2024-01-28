@@ -14,6 +14,7 @@ java {
 }
 
 ext {
+    springBootVersion = '3.2.1'
     springCloudAWSVersion = '3.1.0'
 }
 
@@ -40,6 +41,8 @@ dependencies {
     implementation 'io.awspring.cloud:spring-cloud-aws-starter'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    implementation project(':auth-service')
 }
 
 tasks.named('test') {

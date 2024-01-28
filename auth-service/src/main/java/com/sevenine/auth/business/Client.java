@@ -1,4 +1,4 @@
-package com.sevenine.auth.client.business;
+package com.sevenine.auth.business;
 
 import lombok.Getter;
 import lombok.Setter;

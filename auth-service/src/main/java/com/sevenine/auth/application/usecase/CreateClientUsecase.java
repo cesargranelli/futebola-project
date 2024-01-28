@@ -1,10 +1,10 @@
-package com.sevenine.auth.client.application.usecase;
+package com.sevenine.auth.application.usecase;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sevenine.auth.client.application.service.LeagueService;
-import com.sevenine.auth.client.application.usecase.output.CreateClientOutput;
-import com.sevenine.auth.client.business.Client;
-import com.sevenine.auth.client.application.usecase.input.CreateClientInput;
+import com.sevenine.auth.application.service.LeagueService;
+import com.sevenine.auth.application.usecase.input.CreateClientInput;
+import com.sevenine.auth.application.usecase.output.CreateClientOutput;
+import com.sevenine.auth.business.Client;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

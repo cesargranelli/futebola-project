@@ -1,9 +1,9 @@
-package com.sevenine.auth.client.application.service;
+package com.sevenine.auth.application.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sevenine.auth.client.infrastructure.repository.mongodb.ClientRepository;
-import com.sevenine.auth.client.infrastructure.repository.mongodb.document.ClientDocument;
-import com.sevenine.auth.client.business.Client;
+import com.sevenine.auth.business.Client;
+import com.sevenine.auth.infrastructure.repository.mongodb.ClientRepository;
+import com.sevenine.auth.infrastructure.repository.mongodb.document.ClientDocument;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
