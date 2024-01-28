@@ -1,6 +1,6 @@
-package com.sevenine.client.infrastructure.repository.mongodb;
+package com.sevenine.auth.client.infrastructure.repository.mongodb;
 
-import com.sevenine.client.infrastructure.repository.mongodb.document.ClientDocument;
+import com.sevenine.auth.client.infrastructure.repository.mongodb.document.ClientDocument;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 

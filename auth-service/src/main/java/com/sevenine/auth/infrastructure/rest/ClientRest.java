@@ -1,8 +1,8 @@
-package com.sevenine.client.infrastructure.rest;
+package com.sevenine.auth.client.infrastructure.rest;
 
-import com.sevenine.client.application.usecase.CreateClientUsecase;
-import com.sevenine.client.application.usecase.input.CreateClientInput;
-import com.sevenine.client.application.usecase.output.CreateClientOutput;
+import com.sevenine.auth.client.application.usecase.CreateClientUsecase;
+import com.sevenine.auth.client.application.usecase.input.CreateClientInput;
+import com.sevenine.auth.client.application.usecase.output.CreateClientOutput;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

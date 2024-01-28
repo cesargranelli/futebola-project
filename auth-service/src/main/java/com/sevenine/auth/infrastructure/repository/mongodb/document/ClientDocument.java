@@ -1,4 +1,4 @@
-package com.sevenine.client.infrastructure.repository.mongodb.document;
+package com.sevenine.auth.client.infrastructure.repository.mongodb.document;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document("clients")
 public class ClientDocument {
     @Id
+    private String id;
     private String uuid;
     private String name;
     private String document;

@@ -46,3 +46,7 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+jar {
+    buildDir 'target'
+}
+

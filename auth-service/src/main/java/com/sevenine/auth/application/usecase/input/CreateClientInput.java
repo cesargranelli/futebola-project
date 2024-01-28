@@ -1,4 +1,4 @@
-package com.sevenine.client.application.usecase.input;
+package com.sevenine.auth.client.application.usecase.input;
 
 import java.time.LocalDate;
 

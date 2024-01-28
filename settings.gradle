@@ -1,2 +1,4 @@
-rootProject.name = 'cag-ms-client'
+rootProject.name = 'futebola-project'
+
+include 'auth-service'
 
