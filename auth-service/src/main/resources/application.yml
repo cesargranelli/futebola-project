@@ -1,12 +1,12 @@
 server:
   port: 5001
   servlet:
-    application-display-name: client
-    context-path: /cag/client
+    application-display-name: auth
+    context-path: /futebola/auth
 
 spring:
   application:
-    name: ms-client
+    name: auth-service
   jackson:
     time-zone: America/Sao_Paulo
 
@@ -20,4 +20,4 @@ spring:
   data:
     mongodb:
       uri: mongodb://localhost:27017
-      database: cag
+      database: futebola

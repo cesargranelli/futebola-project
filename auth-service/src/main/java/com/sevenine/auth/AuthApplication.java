@@ -6,10 +6,10 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @EnableMongoRepositories
 @SpringBootApplication
-public class ClientApplication {
+public class AuthApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ClientApplication.class, args);
+        SpringApplication.run(AuthApplication.class, args);
     }
 
 }
