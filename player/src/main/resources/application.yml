@@ -1,12 +1,12 @@
 server:
-  port: 5001
+  port: 5002
   servlet:
-    application-display-name: auth
-    context-path: /futebola/auth
+    application-display-name: player
+    context-path: /futebola/player
 
 spring:
   application:
-    name: auth-service
+    name: player
   jackson:
     time-zone: America/Sao_Paulo
 

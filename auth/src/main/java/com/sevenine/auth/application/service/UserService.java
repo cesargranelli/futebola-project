@@ -28,8 +28,6 @@ public class UserService implements UserDetailsService {
             UserDocument userDocument = mapper.convertValue(newUser, UserDocument.class);
             return mapper.convertValue(repository.save(userDocument), User.class);
         }
-        org.springframework.security.core.userdetails.User.UserBuilder userBuilder = org.springframework.security.core.userdetails.User.withUsername(newUser.getCredentials().getUsername()).password(newUser.getCredentials().getPassword());
-        UserDetails build = userBuilder.build();
         return mapper.convertValue(user, User.class);
     }
 
