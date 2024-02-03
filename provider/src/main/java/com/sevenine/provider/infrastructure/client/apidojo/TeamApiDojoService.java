@@ -27,10 +27,10 @@ public class TeamApiDojoService implements TeamApiService {
     private final TeamApiDojoConverter converter;
 
     @Override
-    public List<TeamResponse> list(String tournamentCode, String seasonCode) {
+    public List<TeamResponse> list(String... strings) {
         String endpoint = properties.getGetStadings()
-                .concat("?tournamentId=").concat(tournamentCode)
-                .concat("&seasonId=").concat(seasonCode)
+                .concat("?tournamentId=").concat(strings[0])
+                .concat("&seasonId=").concat(strings[1])
                 .concat("&type=total");
 
         ResponseEntity<TotalApiDojo> responseEntity =

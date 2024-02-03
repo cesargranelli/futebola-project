@@ -5,5 +5,5 @@ import com.sevenine.provider.application.service.response.TeamResponse;
 import java.util.List;
 
 public interface TeamApiService {
-    List<TeamResponse> list(String tournamentCode, String seasonCode);
+    List<TeamResponse> list(String... strings);
 }

@@ -23,7 +23,7 @@ public class TeamApiSofascoreService implements TeamApiService {
     private final TeamApiDojoConverter converter;
 
     @Override
-    public List<TeamResponse> list(String tournamentCode, String seasonCode) {
+    public List<TeamResponse> list(String... strings) {
         System.out.println("TeamApiSofascoreService.list");
 //        String endpoint = properties.getGetStadings()
 //                .concat("?tournamentId=").concat(tournamentCode)
