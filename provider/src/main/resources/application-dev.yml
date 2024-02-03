@@ -1,12 +1,12 @@
 server:
   port: 5003
   servlet:
-    application-display-name: sofascore
-    context-path: /futebola/sofascore
+    application-display-name: provider
+    context-path: /futebola/provider
 
 spring:
   application:
-    name: sofascore
+    name: provider
   jackson:
     time-zone: America/Sao_Paulo
 
@@ -23,7 +23,7 @@ spring:
       database: futebola
 
 rapidapi:
-  sofascore:
+  apidojo:
     credentials:
       x-rapidapi-host: sofascore.p.rapidapi.com
       x-rapidapi-key: 67f551b823msh34866d68c74885cp1f1224jsnd7e6dabf5245

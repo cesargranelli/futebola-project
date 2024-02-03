@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RequestMapping(value = "teams")
 @RestController
-public class SofascoreRest {
+public class ProviderRest {
 
     private final UpdateTeamUsecase updateTeamUsecase;
 

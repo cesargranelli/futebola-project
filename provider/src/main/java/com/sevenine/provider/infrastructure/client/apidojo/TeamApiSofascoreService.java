@@ -3,24 +3,20 @@ package com.sevenine.provider.infrastructure.client.apidojo;
 import com.sevenine.provider.application.service.TeamApiService;
 import com.sevenine.provider.application.service.response.TeamResponse;
 import com.sevenine.provider.infrastructure.client.apidojo.converter.TeamApiDojoConverter;
-import com.sevenine.provider.infrastructure.client.apidojo.response.TotalApiDojo;
 import com.sevenine.provider.infrastructure.properties.ApiDojoProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.RequestEntity;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
 import java.util.List;
 
-import static java.util.Objects.isNull;
-
 @RequiredArgsConstructor
 @Service
-public class TeamApiDojoService implements TeamApiService {
+public class TeamApiSofascoreService implements TeamApiService {
 
     private final ApiDojoProperties properties;
     private final RestTemplate restTemplate;
@@ -28,19 +24,20 @@ public class TeamApiDojoService implements TeamApiService {
 
     @Override
     public List<TeamResponse> list(String tournamentCode, String seasonCode) {
-        String endpoint = properties.getGetStadings()
-                .concat("?tournamentId=").concat(tournamentCode)
-                .concat("&seasonId=").concat(seasonCode)
-                .concat("&type=total");
+        System.out.println("TeamApiSofascoreService.list");
+//        String endpoint = properties.getGetStadings()
+//                .concat("?tournamentId=").concat(tournamentCode)
+//                .concat("&seasonId=").concat(seasonCode)
+//                .concat("&type=total");
+//
+//        ResponseEntity<TotalApiDojo> responseEntity =
+//                restTemplate.exchange(requestEntity(endpoint), TotalApiDojo.class);
+//
+//        if (!responseEntity.getStatusCode().is2xxSuccessful() || isNull(responseEntity.getBody())) {
+//            return null;
+//        }
 
-        ResponseEntity<TotalApiDojo> responseEntity =
-                restTemplate.exchange(requestEntity(endpoint), TotalApiDojo.class);
-
-        if (!responseEntity.getStatusCode().is2xxSuccessful() || isNull(responseEntity.getBody())) {
-            return null;
-        }
-
-        return converter.convert(responseEntity.getBody());
+        return null;//converter.convert(responseEntity.getBody());
     }
 
     private RequestEntity<?> requestEntity(String endpoint) {

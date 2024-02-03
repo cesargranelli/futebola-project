@@ -7,8 +7,8 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @Getter
 @Setter
-@ConfigurationProperties("rapidapi.sofascore")
-public class RapidApiProperties {
+@ConfigurationProperties("rapidapi.apidojo")
+public class ApiDojoProperties {
     @Value("endpoints")
     private String getStadings;
     @Value("credentials")
