@@ -1,0 +1,7 @@
+package com.sevenine.sofascore.infrastructure.client.apidojo.response;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public record RowsApiDojo(TeamApiDojo team) {
+}

@@ -3,7 +3,7 @@ package com.sevenine.player.application.usecase;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sevenine.player.application.service.PlayerService;
 import com.sevenine.player.application.usecase.output.PlayerOutput;
-import com.sevenine.player.entity.Player;
+import com.sevenine.player.business.entity.Player;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

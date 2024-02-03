@@ -1,4 +1,4 @@
-package com.sevenine.player.entity;
+package com.sevenine.player.business.entity;
 
 import lombok.Getter;
 import lombok.Setter;
