@@ -17,6 +17,7 @@ public class TeamDocument {
     private String id;
     private String uuid;
     private String name;
+    private String slug;
     @Field(name = "short_name")
     private String shortName;
     @Field(name = "name_code")

@@ -46,8 +46,8 @@ public class TeamApiSofascoreService implements TeamApiService {
 
     private HttpHeaders httpHeaders() {
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("x-rapidapi-host", properties.getXRapidapiHost());
-        httpHeaders.add("x-rapidapi-key", properties.getXRapidapiKey());
+        httpHeaders.add("x-rapidapi-host", properties.getCredentials().getXRapidapiHost());
+        httpHeaders.add("x-rapidapi-key", properties.getCredentials().getXRapidapiKey());
 
         return httpHeaders;
     }

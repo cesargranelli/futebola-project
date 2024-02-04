@@ -5,18 +5,20 @@ import com.sevenine.provider.application.usecase.input.UpdateTeamInput;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
-@RequestMapping(value = "teams")
 @RestController
 public class ProviderRest {
 
     private final UpdateTeamUsecase updateTeamUsecase;
 
     @ResponseStatus(HttpStatus.OK)
-    @PutMapping(value = "update")
-    public ResponseEntity<Void> update(@RequestBody UpdateTeamInput input) {
+    @PutMapping("teams")
+    public ResponseEntity<Void> teams(@RequestBody UpdateTeamInput input) {
         updateTeamUsecase.execute(input);
         return ResponseEntity.status(HttpStatus.OK).build();
     }

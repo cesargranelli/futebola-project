@@ -28,7 +28,7 @@ public class TeamApiDojoService implements TeamApiService {
 
     @Override
     public List<TeamResponse> list(String... strings) {
-        String endpoint = properties.getGetStadings()
+        String endpoint = properties.getEndpoints().getGetStandings()
                 .concat("?tournamentId=").concat(strings[0])
                 .concat("&seasonId=").concat(strings[1])
                 .concat("&type=total");
@@ -49,8 +49,8 @@ public class TeamApiDojoService implements TeamApiService {
 
     private HttpHeaders httpHeaders() {
         HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.add("x-rapidapi-host", properties.getXRapidapiHost());
-        httpHeaders.add("x-rapidapi-key", properties.getXRapidapiKey());
+        httpHeaders.add("x-rapidapi-host", properties.getCredentials().getXRapidapiHost());
+        httpHeaders.add("x-rapidapi-key", properties.getCredentials().getXRapidapiKey());
 
         return httpHeaders;
     }
