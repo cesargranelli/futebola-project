@@ -2,7 +2,7 @@ package com.sevenine.provider.infrastructure.repository;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sevenine.provider.application.service.TeamRepositoriesService;
+import com.sevenine.provider.application.service.TeamRepository;
 import com.sevenine.provider.business.entity.Team;
 import com.sevenine.provider.infrastructure.repository.document.TeamDocument;
 import com.sevenine.provider.infrastructure.repository.mongodb.TeamMongoRepository;
@@ -13,14 +13,14 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Component
-public class TeamRepositories implements TeamRepositoriesService {
+public class TeamRepositoryService implements TeamRepository {
 
     private final TeamMongoRepository repository;
     private final ObjectMapper mapper;
 
     @Override
-    public Team findBySlug(String slug) {
-        return repository.findBySlug(slug).map(teamDocument ->
+    public Team findByIdOrigin(Long idOrigin) {
+        return repository.findByIdOrigin(idOrigin).map(teamDocument ->
                 mapper.convertValue(teamDocument, Team.class)).orElse(null);
     }
 

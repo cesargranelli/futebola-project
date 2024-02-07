@@ -4,8 +4,8 @@ import com.sevenine.provider.business.entity.Team;
 
 import java.util.List;
 
-public interface TeamRepositoriesService {
-    Team findBySlug(String slug);
+public interface TeamRepository {
+    Team findByIdOrigin(Long slug);
 
     void save(List<Team> teams);
 }

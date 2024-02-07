@@ -7,8 +7,6 @@ import lombok.Setter;
 import java.time.LocalDate;
 import java.util.UUID;
 
-import static java.util.Objects.isNull;
-
 @Getter
 @Setter
 public class Team {
@@ -18,32 +16,30 @@ public class Team {
     private String slug;
     private String shortName;
     private String nameCode;
-    private int idOrigin;
+    private Long idOrigin;
     private ProviderEnum provider;
     private LocalDate createdAt;
 
-    public void setUuid(String uuid) {
-        this.uuid = (uuid == null) ? UUID.randomUUID().toString() : uuid;
-    }
+    public Team createTeam(Long id, String name, String shortName, String nameCode, ProviderEnum provider) {
+        this.uuid = UUID.randomUUID().toString();
+        this.name = name;
+        this.slug = generatedSlug();
+        this.shortName = shortName;
+        this.nameCode = nameCode;
+        this.idOrigin = id;
+        this.provider = provider;
+        this.createdAt = LocalDate.now();
 
-    public void setSlug(String slug) {
-        this.slug = (slug == null) ? generatedSlug() : slug;
-    }
-
-    public void setIdOrigin(int idOrigin) {
-        if (idOrigin < 1) {
-            this.idOrigin = Integer.parseInt(id);
-            this.id = null;
-        } else {
-            this.idOrigin = idOrigin;
-        }
-    }
-
-    public void setCreatedAt(LocalDate createdAt) {
-        this.createdAt = (isNull(createdAt)) ? LocalDate.now() : createdAt;
+        return this;
     }
 
     private String generatedSlug() {
-        return this.name.toLowerCase().replace(" ", "-");
+        return this.name.toLowerCase().replace(" ", "-")
+                .replaceAll("[áàâãä]", "a")
+                .replaceAll("[éèêẽë]", "e")
+                .replaceAll("[íìîĩï]", "i")
+                .replaceAll("[óòôõö]", "o")
+                .replaceAll("[úùûũü]", "u")
+                .replaceAll("[ç]", "c");
     }
 }
