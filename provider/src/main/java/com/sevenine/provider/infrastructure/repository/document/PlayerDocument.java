@@ -11,8 +11,8 @@ import java.time.LocalDate;
 
 @Getter
 @Setter
-@Document("teams")
-public class TeamDocument {
+@Document("players")
+public class PlayerDocument {
     @Id
     private String id;
     private String uuid;
@@ -20,8 +20,10 @@ public class TeamDocument {
     private String slug;
     @Field(name = "short_name")
     private String shortName;
-    @Field(name = "name_code")
-    private String nameCode;
+    private String position;
+    @Field(name = "shirt_number")
+    private Long shirtNumber;
+    private TeamDocument team;
     @Field(name = "id_origin")
     private Long idOrigin;
     private ProviderEnum provider;

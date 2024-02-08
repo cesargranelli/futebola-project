@@ -29,3 +29,4 @@ rapidapi:
       x-rapidapi-key: 67f551b823msh34866d68c74885cp1f1224jsnd7e6dabf5245
     endpoints:
       get-standings: https://sofascore.p.rapidapi.com/tournaments/get-standings
+      get-squad: https://sofascore.p.rapidapi.com/teams/get-squad

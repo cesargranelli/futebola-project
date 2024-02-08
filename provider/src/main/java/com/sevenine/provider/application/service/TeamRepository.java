@@ -8,4 +8,6 @@ public interface TeamRepository {
     Team findByIdOrigin(Long slug);
 
     void save(List<Team> teams);
+
+    List<Team> findAll();
 }

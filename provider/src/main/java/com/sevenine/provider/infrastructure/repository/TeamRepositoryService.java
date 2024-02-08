@@ -30,4 +30,10 @@ public class TeamRepositoryService implements TeamRepository {
         }));
     }
 
+    @Override
+    public List<Team> findAll() {
+        return mapper.convertValue(repository.findAll(), new TypeReference<>() {
+        });
+    }
+
 }

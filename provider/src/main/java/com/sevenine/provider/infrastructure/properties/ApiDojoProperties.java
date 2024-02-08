@@ -15,6 +15,7 @@ public class ApiDojoProperties {
     @Setter
     public static class Endpoints {
         private String getStandings;
+        private String getSquad;
     }
 
     @Getter

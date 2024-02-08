@@ -13,7 +13,6 @@ import java.util.List;
 public class TeamApiDojoConverter {
 
     private final List<TeamResponse> teamResponseList;
-
     private final ObjectMapper mapper;
 
     public List<TeamResponse> convert(TotalApiDojo totalApiDojo) {

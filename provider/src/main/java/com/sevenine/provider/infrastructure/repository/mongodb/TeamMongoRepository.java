@@ -6,5 +6,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.Optional;
 
 public interface TeamMongoRepository extends MongoRepository<TeamDocument, String> {
-    Optional<TeamDocument> findByIdOrigin(Long slug);
+    Optional<TeamDocument> findByIdOrigin(Long idOrigin);
 }
