@@ -1,4 +1,6 @@
 rootProject.name = 'futebola-project'
 
-include 'auth-service'
+include 'auth'
+include 'player'
+include 'provider'
 

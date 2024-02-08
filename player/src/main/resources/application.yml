@@ -1,0 +1,23 @@
+server:
+  port: 5002
+  servlet:
+    application-display-name: player
+    context-path: /futebola/player
+
+spring:
+  application:
+    name: player
+  jackson:
+    time-zone: America/Sao_Paulo
+
+logging:
+  level:
+    org:
+      springframework:
+        web: info
+---
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017
+      database: futebola

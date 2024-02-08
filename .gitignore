@@ -6,6 +6,12 @@ target/
 !**/src/main/**/build/
 !**/src/test/**/build/
 /gradle
+gradlew
+gradlew.bat
+
+### MDL ###
+target
+generated
 
 ### STS ###
 .apt_generated
