@@ -19,6 +19,6 @@ public class PlayerDocument {
     @Field(name = "short_name")
     private String shortName;
     private String position;
-    @Field(name = "shirt_name")
-    private String shirtName;
+    @Field(name = "shirt_number")
+    private String shirtNumber;
 }

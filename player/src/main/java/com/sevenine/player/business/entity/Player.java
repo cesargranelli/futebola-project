@@ -15,7 +15,7 @@ public class Player {
     private String name;
     private String shortName;
     private String position;
-    private String shirtName;
+    private String shirtNumber;
 
     public Player generatedUuid() {
         this.uuid = (isNull(uuid)) ? UUID.randomUUID().toString() : this.uuid;
