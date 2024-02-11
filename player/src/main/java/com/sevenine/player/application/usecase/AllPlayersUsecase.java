@@ -14,13 +14,13 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Component
-public class PlayerUsecase {
+public class AllPlayersUsecase {
 
     private final PlayerServiceRepository playerServiceRepository;
     private final ObjectMapper mapper;
 
     public Page<PlayerOutput> list(Pageable pageable) {
-        Page<Player> players = playerServiceRepository.listPlayers(pageable);
+        Page<Player> players = playerServiceRepository.listAllPlayers(pageable);
 
         List<PlayerOutput> outputs = players.stream().map(player ->
                 mapper.convertValue(player, PlayerOutput.class)).toList();

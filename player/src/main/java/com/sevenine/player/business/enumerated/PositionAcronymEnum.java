@@ -5,8 +5,8 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum PositionEnum {
-    G("GOALKEEPER"), D("DEFENSE"), M("MIDDLEWARE"), F("FORWARD");
+public enum PositionAcronymEnum {
+    G("GOLEIRO"), D("DEFENSOR"), M("MEIA"), F("ATACANTE");
 
     private final String name;
 }

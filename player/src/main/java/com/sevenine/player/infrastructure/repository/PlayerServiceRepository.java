@@ -3,6 +3,7 @@ package com.sevenine.player.infrastructure.repository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sevenine.player.application.service.PlayerRepository;
 import com.sevenine.player.business.entity.Player;
+import com.sevenine.player.business.enumerated.PositionNameEnum;
 import com.sevenine.player.infrastructure.repository.document.PlayerDocument;
 import com.sevenine.player.infrastructure.repository.mongodb.PlayerMongoRepository;
 import lombok.RequiredArgsConstructor;
@@ -22,8 +23,18 @@ public class PlayerServiceRepository implements PlayerRepository {
     private final ObjectMapper mapper;
 
     @Override
-    public Page<Player> listPlayers(Pageable pageable) {
+    public Page<Player> listAllPlayers(Pageable pageable) {
         Page<PlayerDocument> documents = repository.findByPositionIsNotNull(pageable);
+
+        List<Player> players = documents.stream().map(document -> mapper.convertValue(document, Player.class))
+                .collect(Collectors.toList());
+
+        return new PageImpl<>(players, documents.getPageable(), documents.getTotalElements());
+    }
+
+    @Override
+    public Page<Player> listAllPlayersByPosition(Pageable pageable, PositionNameEnum position) {
+        Page<PlayerDocument> documents = repository.findByPosition(position.getAcronym(), pageable);
 
         List<Player> players = documents.stream().map(document -> mapper.convertValue(document, Player.class))
                 .collect(Collectors.toList());
