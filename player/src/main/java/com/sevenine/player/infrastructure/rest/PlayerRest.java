@@ -1,7 +1,6 @@
 package com.sevenine.player.infrastructure.rest;
 
-import com.sevenine.player.application.usecase.AllPlayersUsecase;
-import com.sevenine.player.application.usecase.PositionPlayersUsecase;
+import com.sevenine.player.application.usecase.ListPlayers;
 import com.sevenine.player.application.usecase.output.PagenateOutput;
 import com.sevenine.player.business.enumerated.PositionNameEnum;
 import lombok.RequiredArgsConstructor;
@@ -17,20 +16,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class PlayerRest {
 
-    private final AllPlayersUsecase allPlayersUsecase;
-    private final PositionPlayersUsecase positionPlayersUsecase;
+    private final ListPlayers listPlayers;
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping
-    public ResponseEntity<PagenateOutput<?>> players(@RequestParam("page") int page, @RequestParam("size") int size) {
-        return convertPagenate(allPlayersUsecase.list(PageRequest.of(page - 1, size)), HttpStatus.OK);
-    }
-
-    @ResponseStatus(HttpStatus.OK)
-    @GetMapping("position")
-    public ResponseEntity<PagenateOutput<?>> filterPosition(@RequestParam("page") int page, @RequestParam("size") int size,
-                                                            @RequestParam("position") PositionNameEnum position) {
-        return convertPagenate(positionPlayersUsecase.list(PageRequest.of(page - 1, size), position),
+    public ResponseEntity<PagenateOutput<?>> players(@RequestParam("page") int page, @RequestParam("size") int size,
+                                                     @RequestParam("position") PositionNameEnum position) {
+        return convertPagenate(listPlayers.list(PageRequest.of(page - 1, size), position),
                 HttpStatus.OK);
     }
 

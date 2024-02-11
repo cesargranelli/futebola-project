@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface PlayerRepository {
-    Page<Player> listAllPlayers(Pageable pageable);
+    Page<Player> list(Pageable pageable);
 
-    Page<Player> listAllPlayersByPosition(Pageable pageable, PositionNameEnum position);
+    Page<Player> list(Pageable pageable, PositionNameEnum position);
 }

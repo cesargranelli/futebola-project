@@ -23,19 +23,16 @@ public class PlayerServiceRepository implements PlayerRepository {
     private final ObjectMapper mapper;
 
     @Override
-    public Page<Player> listAllPlayers(Pageable pageable) {
-        Page<PlayerDocument> documents = repository.findByPositionIsNotNull(pageable);
-
-        List<Player> players = documents.stream().map(document -> mapper.convertValue(document, Player.class))
-                .collect(Collectors.toList());
-
-        return new PageImpl<>(players, documents.getPageable(), documents.getTotalElements());
+    public Page<Player> list(Pageable pageable) {
+        return convert(repository.findByPositionIsNotNull(pageable));
     }
 
     @Override
-    public Page<Player> listAllPlayersByPosition(Pageable pageable, PositionNameEnum position) {
-        Page<PlayerDocument> documents = repository.findByPosition(position.getAcronym(), pageable);
+    public Page<Player> list(Pageable pageable, PositionNameEnum position) {
+        return convert(repository.findByPosition(position.getAcronym(), pageable));
+    }
 
+    private Page<Player> convert(Page<PlayerDocument> documents) {
         List<Player> players = documents.stream().map(document -> mapper.convertValue(document, Player.class))
                 .collect(Collectors.toList());
 
