@@ -19,17 +19,16 @@ import java.util.stream.Collectors;
 public class PlayerServiceRepository implements PlayerRepository {
 
     private final PlayerMongoRepository repository;
-
     private final ObjectMapper mapper;
 
     @Override
     public Page<Player> listPlayers(Pageable pageable) {
-        Page<PlayerDocument> documents = repository.findAll(pageable);
+        Page<PlayerDocument> documents = repository.findByPositionIsNotNull(pageable);
 
         List<Player> players = documents.stream().map(document -> mapper.convertValue(document, Player.class))
                 .collect(Collectors.toList());
 
-        return new PageImpl<>(players);
+        return new PageImpl<>(players, documents.getPageable(), documents.getTotalElements());
     }
 
 }

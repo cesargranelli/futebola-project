@@ -8,12 +8,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.web.PagedResourcesAssembler;
-import org.springframework.data.web.PagedResourcesAssemblerArgumentResolver;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Component
@@ -26,9 +23,9 @@ public class PlayerUsecase {
         Page<Player> players = playerServiceRepository.listPlayers(pageable);
 
         List<PlayerOutput> outputs = players.stream().map(player ->
-                mapper.convertValue(player, PlayerOutput.class)).collect(Collectors.toList());
+                mapper.convertValue(player, PlayerOutput.class)).toList();
 
-        return new PageImpl<>(outputs);
+        return new PageImpl<>(outputs, players.getPageable(), players.getTotalElements());
     }
 
 }

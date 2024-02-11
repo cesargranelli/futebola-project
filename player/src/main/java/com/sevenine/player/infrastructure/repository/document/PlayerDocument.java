@@ -21,4 +21,5 @@ public class PlayerDocument {
     private String position;
     @Field(name = "shirt_number")
     private String shirtNumber;
+    private Boolean active;
 }

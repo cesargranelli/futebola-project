@@ -2,7 +2,6 @@ package com.sevenine.player.infrastructure.rest;
 
 import com.sevenine.player.application.usecase.PlayerUsecase;
 import com.sevenine.player.application.usecase.output.PagenateOutput;
-import com.sevenine.player.application.usecase.output.PlayerOutput;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,12 +20,12 @@ public class PlayerRest {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping
     public ResponseEntity<PagenateOutput<?>> players(@RequestParam("page") int page, @RequestParam("size") int size) {
-        Page<PlayerOutput> outputs = playerUsecase.list(PageRequest.of(page, size));
-        return ResponseEntity.status(HttpStatus.OK).body(convertPagenate(outputs));
+        return convertPagenate(playerUsecase.list(PageRequest.of(page - 1, size)), HttpStatus.OK);
     }
 
-    private PagenateOutput<?> convertPagenate(Page<?> page) {
-        return new PagenateOutput<>(page.getContent(), page.getNumber(), page.getSize(), page.getNumberOfElements());
+    private ResponseEntity<PagenateOutput<?>> convertPagenate(Page<?> page, HttpStatus status) {
+        PagenateOutput<Object> output = new PagenateOutput<>(page.getContent(), page.getNumber() + 1, page.getNumberOfElements(), page.getTotalPages());
+        return ResponseEntity.status(status).body(output);
     }
 
 }
