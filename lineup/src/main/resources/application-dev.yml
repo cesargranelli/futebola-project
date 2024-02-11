@@ -1,12 +1,12 @@
 server:
-  port: 5003
+  port: 5004
   servlet:
-    application-display-name: player
-    context-path: /futebola/player
+    application-display-name: lineup
+    context-path: /futebola/lineup
 
 spring:
   application:
-    name: player
+    name: lineup
   jackson:
     time-zone: America/Sao_Paulo
 
