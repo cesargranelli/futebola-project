@@ -6,7 +6,13 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum PositionNameEnum {
-    GOLEIRO("G"), DEFENSOR("D"), MEIA("M"), ATACANTE("F"), TODAS("ALL");
+    GOALKEEPER("GOALKEEPER", "G"),
+    DEFENDER("DEFENDER", "D"),
+    MIDFIELDER("MIDFIELDER", "M"),
+    FORWARD("FORWARD", "F"),
+    ALL("ALL", "ALL");
 
+    private final String name;
     private final String acronym;
 }
+
