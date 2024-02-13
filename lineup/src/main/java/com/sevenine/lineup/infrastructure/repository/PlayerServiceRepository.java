@@ -3,7 +3,7 @@ package com.sevenine.lineup.infrastructure.repository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sevenine.lineup.application.service.PlayerRepository;
 import com.sevenine.lineup.business.entity.Player;
-import com.sevenine.lineup.business.enumerated.PositionNameEnum;
+import com.sevenine.lineup.business.enumerated.PositionEnum;
 import com.sevenine.lineup.infrastructure.repository.document.PlayerDocument;
 import com.sevenine.lineup.infrastructure.repository.mongodb.PlayerMongoRepository;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +28,7 @@ public class PlayerServiceRepository implements PlayerRepository {
     }
 
     @Override
-    public Page<Player> list(Pageable pageable, PositionNameEnum position) {
+    public Page<Player> list(Pageable pageable, PositionEnum position) {
         return convert(repository.findByPosition(position.getAcronym(), pageable));
     }
 

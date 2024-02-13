@@ -21,3 +21,10 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017
       database: futebola
+---
+app:
+  errors:
+    response:
+      quantity-players: "Número de jogadores titulares inválido: %s"
+      quantity-reserves: "Número de jogadores reservas inválido: %s"
+      formation: "Divergência entre formação %s vs jogadores por posição %s"

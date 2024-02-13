@@ -21,7 +21,7 @@ public class ListPlayers {
     private final ObjectMapper mapper;
 
     public Page<PlayerOutput> list(Pageable pageable, PositionNameEnum position) {
-        if (position.getAcronym().equals(PositionNameEnum.TODAS.getAcronym())) {
+        if (position.getAcronym().equals(PositionNameEnum.ALL.getAcronym())) {
             return convert(playerServiceRepository.list(pageable));
         } else {
             return convert(playerServiceRepository.list(pageable, position));

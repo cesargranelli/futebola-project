@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @AllArgsConstructor
 @Getter
-public enum PositionNameEnum {
+public enum PositionEnum {
     GOALKEEPER("GOALKEEPER", "G"),
     DEFENDER("DEFENDER", "D"),
     MIDFIELDER("MIDFIELDER", "M"),

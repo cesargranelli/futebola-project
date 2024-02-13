@@ -6,12 +6,13 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public enum FormationEnum {
-    G343("3-4-3"),
-    G352("3-5-2"),
-    G361("3-6-1"),
-    G433("4-3-3"),
-    G442("4-4-2"),
-    G451("4-5-1");
+    G343("G343", "G1-D3-M4-F3"),
+    G352("G352", "G1-D3-M5-F2"),
+    G361("G361", "G1-D3-M6-F1"),
+    G433("G433", "G1-D4-M3-F3"),
+    G442("G442", "G1-D4-M4-F2"),
+    G451("G451", "G1-D4-M5-F1");
 
+    private final String name;
     private final String acronym;
 }
