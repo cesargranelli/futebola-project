@@ -23,6 +23,9 @@ spring:
       database: futebola
 ---
 app:
+  lineup:
+    total-players: 11
+    total-reserves: 3
   errors:
     response:
       number-starting-players: "Número de jogadores titulares: %s vs número informado: %s"

@@ -1,6 +1,7 @@
 package com.sevenine.lineup.business.rules;
 
 import com.sevenine.lineup.business.entity.Lineup;
+import com.sevenine.lineup.business.rules.lineup.LineupValidationRules;
 import com.sevenine.lineup.infrastructure.properties.ValidationLineupProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -9,11 +10,12 @@ import java.util.Arrays;
 
 @RequiredArgsConstructor
 @Component
-public class ValidFormation {
+public class ValidFormation implements LineupValidationRules {
 
     private Lineup lineup;
     private final ValidationLineupProperties properties;
 
+    @Override
     public void execute(Lineup lineup) {
         this.lineup = lineup;
 

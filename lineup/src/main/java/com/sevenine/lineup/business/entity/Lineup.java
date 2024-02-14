@@ -21,8 +21,6 @@ public class Lineup {
     private Integer roundNumber;
     private List<Player> players;
     private List<Player> reserves;
-    private final Integer totalPlayers = 11;
-    private final Integer totalReserves = 3;
 
     public void logAndThrow(String message, Object... values) {
         logger.error(message.replaceAll("%s", "{}"), values);

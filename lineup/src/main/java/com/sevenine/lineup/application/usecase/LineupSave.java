@@ -4,13 +4,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sevenine.lineup.application.usecase.input.LineupInput;
 import com.sevenine.lineup.application.usecase.output.LineupOutput;
 import com.sevenine.lineup.business.entity.Lineup;
-import com.sevenine.lineup.business.rules.NumberReservePlayers;
-import com.sevenine.lineup.business.rules.NumberStartingPlayers;
-import com.sevenine.lineup.business.rules.ValidFormation;
-import com.sevenine.lineup.infrastructure.properties.ValidationLineupProperties;
+import com.sevenine.lineup.business.rules.lineup.LineupValidationRules;
 import com.sevenine.lineup.infrastructure.repository.PlayerServiceRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @RequiredArgsConstructor
 @Component
@@ -18,17 +17,17 @@ public class LineupSave {
 
     private final PlayerServiceRepository playerServiceRepository;
     private final ObjectMapper mapper;
-    private final ValidationLineupProperties properties;
-    private final NumberStartingPlayers numberStartingPlayers;
-    private final NumberReservePlayers numberReservePlayers;
-    private final ValidFormation validFormation;
+    private final List<LineupValidationRules> rules;
 
     public LineupOutput execute(LineupInput input) {
         Lineup lineup = mapper.convertValue(input, Lineup.class);
         // verifica se a rodada permite alterações (antes do início)
-        numberStartingPlayers.execute(lineup); // valida quantidade de jogadores titulares
-        numberReservePlayers.execute(lineup); // valida quantidade de jogadores reservas
-        validFormation.execute(lineup); // valida quantidade de jogadores por posição mediante formação escolhida/informada
+
+        // valida quantidade de jogadores titulares
+        // valida quantidade de jogadores reservas
+        // valida quantidade de jogadores por posição mediante formação escolhida/informada
+        rules.forEach(rule -> rule.execute(lineup));
+
         // busca informações do apostador
         // valida as pontuações distribuídas vs pontuação disponível para o apostador (punter)
         // busca lineup ativo fazendo o bloqueio se encontrar
