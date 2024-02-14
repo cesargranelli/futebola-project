@@ -12,5 +12,6 @@ import org.springframework.stereotype.Component;
 public class ValidationLineupProperties {
     private String numberStartingPlayers;
     private String numberReservePlayers;
-    private String Formation;
+    private String formation;
+    private String round;
 }

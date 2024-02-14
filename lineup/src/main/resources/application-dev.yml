@@ -31,3 +31,4 @@ app:
       number-starting-players: "Número de jogadores titulares: %s vs número informado: %s"
       number-reserve-players: "Número de jogadores reservas: %s vs número informado: %s"
       formation: "Divergência entre formação %s vs jogadores por posição %s"
+      round: "Janela da rodada com fechamento: %s e reabertura: %s vs horário: %s"

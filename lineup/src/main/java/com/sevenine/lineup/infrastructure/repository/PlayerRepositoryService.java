@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
-public class PlayerServiceRepository implements PlayerRepository {
+public class PlayerRepositoryService implements PlayerRepository {
 
     private final PlayerMongoRepository repository;
     private final ObjectMapper mapper;

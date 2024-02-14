@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 @RequiredArgsConstructor
 @Component
-public class ValidFormation implements LineupValidationRules {
+public class ValidationFormation implements LineupValidationRules {
 
     private Lineup lineup;
     private final ValidationLineupProperties properties;
