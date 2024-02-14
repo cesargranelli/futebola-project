@@ -25,6 +25,6 @@ spring:
 app:
   errors:
     response:
-      quantity-players: "Número de jogadores titulares inválido: %s"
-      quantity-reserves: "Número de jogadores reservas inválido: %s"
+      number-starting-players: "Número de jogadores titulares: %s vs número informado: %s"
+      number-reserve-players: "Número de jogadores reservas: %s vs número informado: %s"
       formation: "Divergência entre formação %s vs jogadores por posição %s"

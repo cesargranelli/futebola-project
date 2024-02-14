@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("app.errors.response")
 @Component
 public class ValidationLineupProperties {
-    private String quantityPlayers;
-    private String quantityReserves;
+    private String numberStartingPlayers;
+    private String numberReservePlayers;
     private String Formation;
 }
