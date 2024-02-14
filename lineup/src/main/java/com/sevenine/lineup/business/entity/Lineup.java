@@ -1,6 +1,7 @@
 package com.sevenine.lineup.business.entity;
 
 import com.sevenine.lineup.business.enumerated.FormationEnum;
+import com.sevenine.lineup.business.rules.lineup.LineupValidationRules;
 import com.sevenine.lineup.infrastructure.exception.FormationException;
 import lombok.Getter;
 import lombok.Setter;
@@ -21,6 +22,10 @@ public class Lineup {
     private Integer roundNumber;
     private List<Player> players;
     private List<Player> reserves;
+
+    public void executeRules(List<LineupValidationRules> rules) {
+        rules.forEach(rule -> rule.execute(this));
+    }
 
     public void logAndThrow(String message, Object... values) {
         logger.error(message.replaceAll("%s", "{}"), values);

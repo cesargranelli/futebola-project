@@ -22,13 +22,13 @@ public class LineupSave {
     public LineupOutput execute(LineupInput input) {
         Lineup lineup = mapper.convertValue(input, Lineup.class);
         // verifica se a rodada permite alterações (antes do início)
+        // busca informações do apostador
 
         // valida quantidade de jogadores titulares
         // valida quantidade de jogadores reservas
         // valida quantidade de jogadores por posição mediante formação escolhida/informada
-        rules.forEach(rule -> rule.execute(lineup));
+        lineup.executeRules(rules);
 
-        // busca informações do apostador
         // valida as pontuações distribuídas vs pontuação disponível para o apostador (punter)
         // busca lineup ativo fazendo o bloqueio se encontrar
         // salva o novo lineup
