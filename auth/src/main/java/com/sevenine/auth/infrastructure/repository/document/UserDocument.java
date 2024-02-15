@@ -13,7 +13,7 @@ public class UserDocument {
     private String id;
     private String uuid;
     private String name;
-    private String nick;
+    private String nick; // TODO: retirar daqui e deixar para o módulo gamer
     private String birthdate;
     private ContactDocument contacts;
     private CredentialDocument credentials;
