@@ -21,3 +21,7 @@ spring:
     mongodb:
       uri: mongodb://localhost:27017
       database: futebola
+
+app:
+  properties:
+    initial-points: 10

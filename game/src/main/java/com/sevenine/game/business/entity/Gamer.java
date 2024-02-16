@@ -4,10 +4,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
-
-import static java.util.Objects.isNull;
 
 @Getter
 @Setter
@@ -20,10 +19,15 @@ public class Gamer {
     private List<League> leagues;
     private BigDecimal totalScore;
     private BigDecimal roundScore;
-    private String createAt;
+    private LocalDate createdAt;
 
-    public Gamer generatedUuid() {
-        this.uuid = (isNull(uuid)) ? UUID.randomUUID().toString() : this.uuid;
+    public final Gamer createGamer(String uuidUser, String nick, Integer initialPoints) {
+        this.uuid = UUID.randomUUID().toString();
+        this.uuidUser = uuidUser;
+        this.nick = nick;
+        this.points = initialPoints;
+        this.createdAt = LocalDate.now();
+
         return this;
     }
 }
