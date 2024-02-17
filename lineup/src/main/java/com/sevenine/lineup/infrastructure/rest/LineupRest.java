@@ -2,7 +2,7 @@ package com.sevenine.lineup.infrastructure.rest;
 
 import com.sevenine.lineup.application.usecase.LineupSave;
 import com.sevenine.lineup.application.usecase.input.LineupInput;
-import com.sevenine.lineup.application.usecase.output.LineupOutput;
+import com.sevenine.lineup.application.usecase.output.SaveLineupOutput;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,7 +18,7 @@ public class LineupRest {
 
     @ResponseStatus(HttpStatus.OK)
     @PutMapping
-    public ResponseEntity<LineupOutput> lineups(@RequestBody LineupInput lineup) {
+    public ResponseEntity<SaveLineupOutput> lineups(@RequestBody LineupInput lineup) {
         return ResponseEntity.status(HttpStatus.OK).body(lineupSave.execute(lineup));
     }
 

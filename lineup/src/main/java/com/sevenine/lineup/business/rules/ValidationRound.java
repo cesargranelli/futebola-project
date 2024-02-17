@@ -4,6 +4,7 @@ import com.sevenine.lineup.application.service.RoundRepository;
 import com.sevenine.lineup.business.entity.Lineup;
 import com.sevenine.lineup.business.enumerated.StatusRoundEnum;
 import com.sevenine.lineup.business.rules.lineup.LineupValidationRules;
+import com.sevenine.lineup.infrastructure.exception.ValidationLineupException;
 import com.sevenine.lineup.infrastructure.properties.LineupErrorProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -11,6 +12,8 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+
+import static java.lang.String.format;
 
 @ConditionalOnProperty(prefix = "app.rules", name = "validation-round", havingValue = "true")
 @RequiredArgsConstructor
@@ -32,8 +35,10 @@ public class ValidationRound implements LineupValidationRules {
                     LocalDateTime now = LocalDateTime.now();
 
                     if ((now.isAfter(begin) && now.isBefore(end)) || (now.isAfter(end))) {
-                        lineup.logAndThrow(properties.getRound(), begin.format(DATETIMEFORMAT),
-                                end.format(DATETIMEFORMAT), now.format(DATETIMEFORMAT));
+                        throw new ValidationLineupException(format(properties.getRound(),
+                                begin.format(DATETIMEFORMAT),
+                                end.format(DATETIMEFORMAT),
+                                now.format(DATETIMEFORMAT)));
                     }
                 });
     }
