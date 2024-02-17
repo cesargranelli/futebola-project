@@ -3,7 +3,7 @@ package com.sevenine.lineup.business.rules;
 import com.sevenine.lineup.business.entity.Lineup;
 import com.sevenine.lineup.business.rules.lineup.LineupValidationRules;
 import com.sevenine.lineup.infrastructure.properties.LineupProperties;
-import com.sevenine.lineup.infrastructure.properties.ValidationLineupProperties;
+import com.sevenine.lineup.infrastructure.properties.LineupErrorProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class NumberStartingPlayers implements LineupValidationRules {
 
     private final LineupProperties lineupProperties;
-    private final ValidationLineupProperties properties;
+    private final LineupErrorProperties properties;
 
     @Override
     public void execute(Lineup lineup) {

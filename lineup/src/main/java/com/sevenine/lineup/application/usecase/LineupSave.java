@@ -1,11 +1,13 @@
 package com.sevenine.lineup.application.usecase;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sevenine.lineup.application.service.GameClient;
+import com.sevenine.lineup.application.service.PlayerRepository;
 import com.sevenine.lineup.application.usecase.input.LineupInput;
 import com.sevenine.lineup.application.usecase.output.LineupOutput;
+import com.sevenine.lineup.business.entity.Gamer;
 import com.sevenine.lineup.business.entity.Lineup;
 import com.sevenine.lineup.business.rules.lineup.LineupValidationRules;
-import com.sevenine.lineup.infrastructure.repository.PlayerRepositoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -15,13 +17,15 @@ import java.util.List;
 @Component
 public class LineupSave {
 
-    private final PlayerRepositoryService playerRepositoryService;
+    private final PlayerRepository playerRepository;
     private final ObjectMapper mapper;
     private final List<LineupValidationRules> rules;
+    private final GameClient gameClient;
 
     public LineupOutput execute(LineupInput input) {
         Lineup lineup = mapper.convertValue(input, Lineup.class);
-        // busca informações do apostador
+
+        Gamer gamer = gameClient.findGamerByUser(input.uuidUser());
 
         // verifica se a rodada permite alterações (antes do início)
         // valida quantidade de jogadores titulares

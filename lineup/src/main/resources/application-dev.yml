@@ -27,8 +27,12 @@ app:
     total-players: 11
     total-reserves: 3
   errors:
-    response:
+    messages:
       number-starting-players: "Número de jogadores titulares: %s vs número informado: %s"
       number-reserve-players: "Número de jogadores reservas: %s vs número informado: %s"
       formation: "Divergência entre formação %s vs jogadores por posição %s"
       round: "Janela da rodada com fechamento: %s e reabertura: %s vs horário: %s"
+      not-found-gamer: "Jogador com uuid %s ainda não fez cadastro na plataforma"
+  client:
+    endpoints:
+      game-uuid-user: http://localhost:5005/futebola/game/gamers/uuid-user?uuid-user={uuidUser}

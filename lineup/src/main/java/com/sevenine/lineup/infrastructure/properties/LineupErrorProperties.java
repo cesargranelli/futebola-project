@@ -7,11 +7,12 @@ import org.springframework.stereotype.Component;
 
 @Getter
 @Setter
-@ConfigurationProperties("app.errors.response")
+@ConfigurationProperties("app.errors.messages")
 @Component
-public class ValidationLineupProperties {
+public class LineupErrorProperties {
     private String numberStartingPlayers;
     private String numberReservePlayers;
     private String formation;
     private String round;
+    private String notFoundGamer;
 }

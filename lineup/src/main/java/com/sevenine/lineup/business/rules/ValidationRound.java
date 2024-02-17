@@ -4,7 +4,7 @@ import com.sevenine.lineup.application.service.RoundRepository;
 import com.sevenine.lineup.business.entity.Lineup;
 import com.sevenine.lineup.business.enumerated.StatusRoundEnum;
 import com.sevenine.lineup.business.rules.lineup.LineupValidationRules;
-import com.sevenine.lineup.infrastructure.properties.ValidationLineupProperties;
+import com.sevenine.lineup.infrastructure.properties.LineupErrorProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +17,7 @@ public class ValidationRound implements LineupValidationRules {
 
     private final static DateTimeFormatter DATETIMEFORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
-    private final ValidationLineupProperties properties;
+    private final LineupErrorProperties properties;
     private final RoundRepository repository;
 
     @Override
