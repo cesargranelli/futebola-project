@@ -2,7 +2,7 @@ package com.sevenine.lineup.application.usecase;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sevenine.lineup.application.service.GameClient;
-import com.sevenine.lineup.application.service.PlayerRepository;
+import com.sevenine.lineup.application.service.LineupRepository;
 import com.sevenine.lineup.application.usecase.input.LineupInput;
 import com.sevenine.lineup.application.usecase.output.LineupOutput;
 import com.sevenine.lineup.business.entity.Lineup;
@@ -16,28 +16,23 @@ import java.util.List;
 @Component
 public class LineupSave {
 
-    private final PlayerRepository playerRepository;
-    private final ObjectMapper mapper;
+    private final LineupRepository lineupRepository;
+    private final ObjectMapper objectMapper;
     private final List<LineupValidationRules> rules;
     private final GameClient gameClient;
 
     public LineupOutput execute(LineupInput input) {
-        Lineup lineup = mapper.convertValue(input, Lineup.class);
+        Lineup lineup = objectMapper.convertValue(input, Lineup.class);
 
         lineup.setGamer(gameClient.findGamerByUser(input.gamer().uuidUser()));
 
-        // verifica se a rodada permite alterações (antes do início)
-        // valida quantidade de jogadores titulares
-        // valida quantidade de jogadores reservas
-        // valida quantidade de jogadores por posição mediante formação escolhida/informada
-        // valida as pontuações distribuídas vs pontuação disponível para o apostador (punter)
         lineup.executeRules(rules);
 
         // busca lineup ativo fazendo o bloqueio se encontrar
-        // salva o novo lineup
+        Lineup lineupSaved = lineupRepository.save(lineup);// salva o novo lineup
         // se sucesso ao salvar, vai no lineup anterior e marca como inativado
         // se der erro, volta a marcação de ativo no lineup anterior e informa apostador sobre o erro
-        return null;
+        return objectMapper.convertValue(lineupSaved, LineupOutput.class);
     }
 
 }

@@ -17,6 +17,7 @@ import static java.lang.String.format;
 public class Lineup {
     private final Logger logger = LoggerFactory.getLogger(Lineup.class);
 
+    private String uuid;
     private Gamer gamer;
     private FormationEnum formationEnum;
     private Integer roundNumber;
