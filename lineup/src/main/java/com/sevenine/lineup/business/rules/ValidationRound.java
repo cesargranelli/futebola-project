@@ -6,11 +6,13 @@ import com.sevenine.lineup.business.enumerated.StatusRoundEnum;
 import com.sevenine.lineup.business.rules.lineup.LineupValidationRules;
 import com.sevenine.lineup.infrastructure.properties.LineupErrorProperties;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+@ConditionalOnProperty(prefix = "app.rules", name = "validation-round", havingValue = "true")
 @RequiredArgsConstructor
 @Component
 public class ValidationRound implements LineupValidationRules {

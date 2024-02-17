@@ -5,20 +5,22 @@ import com.sevenine.lineup.business.rules.lineup.LineupValidationRules;
 import com.sevenine.lineup.infrastructure.properties.LineupProperties;
 import com.sevenine.lineup.infrastructure.properties.LineupErrorProperties;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
+@ConditionalOnProperty(prefix = "app.rules", name = "validation-reserve-players", havingValue = "true")
 @RequiredArgsConstructor
 @Component
-public class NumberStartingPlayers implements LineupValidationRules {
+public class ValidationReservePlayers implements LineupValidationRules {
 
     private final LineupProperties lineupProperties;
     private final LineupErrorProperties properties;
 
     @Override
     public void execute(Lineup lineup) {
-        if (lineup.getPlayers().size() != lineupProperties.getTotalPlayers()) {
-            lineup.logAndThrow(properties.getNumberStartingPlayers(), lineupProperties.getTotalPlayers(),
-                    lineup.getPlayers().size());
+        if (lineup.getReserves().size() != lineupProperties.getTotalReserves()) {
+            lineup.logAndThrow(properties.getNumberReservePlayers(), lineupProperties.getTotalReserves(),
+                    lineup.getReserves().size());
         }
     }
 

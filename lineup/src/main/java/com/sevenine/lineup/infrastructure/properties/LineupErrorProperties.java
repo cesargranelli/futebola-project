@@ -15,4 +15,5 @@ public class LineupErrorProperties {
     private String formation;
     private String round;
     private String notFoundGamer;
+    private String pointsGamer;
 }

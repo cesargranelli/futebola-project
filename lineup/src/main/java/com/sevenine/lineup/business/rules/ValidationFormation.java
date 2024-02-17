@@ -4,10 +4,12 @@ import com.sevenine.lineup.business.entity.Lineup;
 import com.sevenine.lineup.business.rules.lineup.LineupValidationRules;
 import com.sevenine.lineup.infrastructure.properties.LineupErrorProperties;
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
+@ConditionalOnProperty(prefix = "app.rules", name = "validation-formation", havingValue = "true")
 @RequiredArgsConstructor
 @Component
 public class ValidationFormation implements LineupValidationRules {

@@ -5,7 +5,6 @@ import com.sevenine.lineup.application.service.GameClient;
 import com.sevenine.lineup.application.service.PlayerRepository;
 import com.sevenine.lineup.application.usecase.input.LineupInput;
 import com.sevenine.lineup.application.usecase.output.LineupOutput;
-import com.sevenine.lineup.business.entity.Gamer;
 import com.sevenine.lineup.business.entity.Lineup;
 import com.sevenine.lineup.business.rules.lineup.LineupValidationRules;
 import lombok.RequiredArgsConstructor;
@@ -25,14 +24,14 @@ public class LineupSave {
     public LineupOutput execute(LineupInput input) {
         Lineup lineup = mapper.convertValue(input, Lineup.class);
 
-        Gamer gamer = gameClient.findGamerByUser(input.uuidUser());
+        lineup.setGamer(gameClient.findGamerByUser(input.gamer().uuidUser()));
 
         // verifica se a rodada permite alterações (antes do início)
         // valida quantidade de jogadores titulares
         // valida quantidade de jogadores reservas
         // valida quantidade de jogadores por posição mediante formação escolhida/informada
-        lineup.executeRules(rules);
         // valida as pontuações distribuídas vs pontuação disponível para o apostador (punter)
+        lineup.executeRules(rules);
 
         // busca lineup ativo fazendo o bloqueio se encontrar
         // salva o novo lineup

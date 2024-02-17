@@ -33,6 +33,13 @@ app:
       formation: "Divergência entre formação %s vs jogadores por posição %s"
       round: "Janela da rodada com fechamento: %s e reabertura: %s vs horário: %s"
       not-found-gamer: "Jogador com uuid %s ainda não fez cadastro na plataforma"
+      points-gamer: "Pontuação distribuída %s maior do que pontuação do apostador %s"
   client:
     endpoints:
       game-uuid-user: http://localhost:5005/futebola/game/gamers/uuid-user?uuid-user={uuidUser}
+  rules:
+    validation-formation: false
+    validation-points-gamer-players: false
+    validation-reserve-players: false
+    validation-round: false
+    validation-starting-players: true
